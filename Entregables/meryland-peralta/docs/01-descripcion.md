@@ -13,7 +13,6 @@ Además, este proyecto permite aplicar conceptos de arquitectura de software y c
 - Diseño de bases de datos.
 - Desarrollo de APIs.
 - Contenerización con Docker.
-- Despliegue en AWS.
 - Seguridad de aplicaciones.
 - Escalabilidad.
 - Recuperación ante desastres.
