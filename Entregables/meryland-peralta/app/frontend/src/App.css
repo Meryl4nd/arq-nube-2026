@@ -2,59 +2,162 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #fff7fb;
+  color: #222;
 }
 
-#root {
-  min-height: 100vh;
-}
+
+/* CONTENEDOR */
 
 .container {
   max-width: 1100px;
   margin: auto;
-  padding: 40px 20px;
+  padding: 50px 20px;
 }
+
+
+/* ENCABEZADO */
 
 .header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
+
+
+/* TÍTULO PRINCIPAL */
 
 .header h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
+  font-size: 56px;
+  margin: 0 0 15px;
+  color: #222;
+  font-weight: 800;
+  letter-spacing: -1px;
 }
 
+
+/* DESCRIPCIÓN */
+
 .header p {
-  font-size: 18px;
+  font-size: 21px;
+  color: #555;
+  margin: 0;
 }
+
+
+/* TÍTULO SERVICIOS */
+
+h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #222;
+  font-weight: 700;
+}
+
+
+/* TARJETAS */
 
 .services {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
 }
+
 
 .service-card {
   background: white;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 35px 30px;
+  border-radius: 20px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+  border: 1px solid #f1dce7;
+
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+
+  text-align: center;
 }
+
+
+.service-card:hover {
+  transform: translateY(-7px);
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* NOMBRE DEL SERVICIO */
 
 .service-card h3 {
   margin-top: 0;
+  margin-bottom: 20px;
+
+  font-size: 25px;
+  color: #222;
 }
 
+
+/* PRECIO */
+
 .price {
-  font-size: 20px;
+  font-size: 27px;
   font-weight: bold;
+
+  color: #d63384;
+
+  margin-bottom: 28px;
 }
+
+
+/* BOTÓN */
 
 .service-card button {
   width: 100%;
-  padding: 12px;
+
+  padding: 15px;
+
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
+
   cursor: pointer;
-  font-size: 16px;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  color: white;
+  background: #d63384;
+
+  transition: all 0.3s ease;
+}
+
+
+.service-card button:hover {
+  background: #b82b70;
+  transform: scale(1.02);
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+  .container {
+    padding: 35px 15px;
+  }
+
+  .header h1 {
+    font-size: 40px;
+  }
+
+  .header p {
+    font-size: 17px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .services {
+    grid-template-columns: 1fr;
+  }
 }
