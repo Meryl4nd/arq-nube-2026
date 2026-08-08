@@ -1,27 +1,33 @@
 const express = require("express");
+const pool = require("./db");
 
 const app = express();
 
 const PORT = 4000;
+
+app.use(express.json());
 
 // Ruta principal
 app.get("/", (req, res) => {
   res.send("🚀 Bienvenido a la API de SalonBook");
 });
 
-// Ruta para obtener los servicios
-app.get("/services", (req, res) => {
-  const services = [
-    { id: 1, name: "Corte de cabello", price: 25 },
-    { id: 2, name: "Manicure", price: 35 },
-    { id: 3, name: "Pedicure", price: 40 },
-    { id: 4, name: "Tinturado", price: 80 }
-  ];
+// Obtener servicios desde PostgreSQL
+app.get("/services", async (req, res) => {
+  try {
+    const result = await pool.query(
+      "SELECT * FROM services ORDER BY id"
+    );
 
-  res.json(services);
+    res.json(result.rows);
+  } catch (error) {
+    console.error("Error al obtener servicios:", error);
+    res.status(500).json({
+      error: "Error al obtener los servicios",
+    });
+  }
 });
 
-// Iniciar el servidor
 app.listen(PORT, () => {
   console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
 });
